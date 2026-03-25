@@ -36,7 +36,7 @@ XML の構造（`<role>`, `<context>` 等）が指示通りであり、可読性
 - 最適化された XML プロンプト (XML Structured Prompt)
 
 # 参照資料
-- なし
+- [具体例：オンライン会議ツールの選定プロンプト](file:///c:/Users/yert1/Documents/git/ai-skills/.agents/skills/prompt-architect-gem/examples/sample-case.md)
 
 # 注意事項
 プロンプト内には必ず「出力は Markdown 形式で行うこと」という強制指示を記述すること。
