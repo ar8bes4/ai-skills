@@ -7,27 +7,42 @@
 スラッシュコマンドを入力することで、定型的な業務を自動化できます。
 
 - **`/git-check`**
-  - GitHub リポジトリとローカル PC (`C:\Users\yert1\Documents\git`) の同期状態を診断します。
-  - 未クローン、未コミット、未プッシュの状態を一覧レポートします。
-- **`/release` (NEW)**
-  - これまでのコミット履歴から `CHANGELOG.md` を自動更新し、新しいバージョンタグ（v1.x.xなど）を打ってリリース（Push）します。
+  - GitHub リポジトリとローカル PC の同期状態を診断し、レポートを作成します。
+- **`/release`**
+  - バージョンタグの付与、CHANGELOG の自動更新、Push を一括実行します。
+- **`/slide-production-canvas` (NEW)**
+  - リサーチから「1スライド1メッセージ」の黄金律に則った Google Slides 用構成案を作成します。
+- **`/spa-publication-github` (NEW)**
+  - リサーチ結果を清潔感のある SPA として GitHub Pages に公開・集約します。
+- **`/webapp-deployment` (NEW)**
+  - 外部生成（Canvas/Artifact等）コードを GitHub 経由で Vercel 等にデプロイ準備します。
+- **`/app-pwa-offline` (NEW)**
+  - Web アプリを PWA 化およびオフライン単一ファイル形式へパッケージング・公開します。
 - **`/medical-video-production`**
-  - 医療メディア制作（説明文書から動画化まで）の 9 ステップ標準手順書に従って制作をナビゲートします。
+  - 医療動画制作の 9 ステップ標準手順書に従って制作をナビゲートします。
 
 ## 🧠 専門スキル (Skills)
 
 文脈に応じて AI アシスタントが使用する、特定の専門分野に特化した機能群です。
 
 - **[Medical Explanation Gem](./.agents/skills/medical-explanation-gem/SKILL.md)**
-  - エビデンスに基づいた、客観的かつ誠実な患者説明文書を作成します。
+  - エビデンスに基づいた、誠実な患者説明文書を作成します。
+- **[Medical Document Writer](./.agents/skills/medical-document-writer/SKILL.md) (NEW)**
+  - 医師間（Physician-to-Physician）の高度な専門文書を執筆・校正します。
+- **[Slide Designer](./.agents/skills/slide-designer/SKILL.md) (NEW)**
+  - 「1スライド1メッセージ」と医療用デザインの黄金律を適用します。
+- **[Web App Designer](./.agents/skills/web-app-designer/SKILL.md) (NEW)**
+  - 清潔感と視認性を重視した、Vercel 移行も可能な SPA コードを生成します。
+- **[Web App PWA Packager](./.agents/skills/web-app-pwa-packager/SKILL.md) (NEW)**
+  - アプリを PWA 化およびオフライン単一ファイル形式へパッケージングします。
 - **[Speaker Note Generator Gem](./.agents/skills/speaker-note-generator-gem/SKILL.md)**
-  - スライド資料に基づき、聴衆に合わせて最適化されたプレゼン台本を作成します。
+  - プレゼン台本を聴衆に合わせて最適化します。
 - **[Fact Check Gem](./.agents/skills/fact-check-gem/SKILL.md)**
-  - 提供されたテキストの正確性を検証し、詳細な監査レポートを作成します。
+  - テキストの正確性を検証し、監査レポートを作成します。
 - **[Academic Critique Gem](./.agents/skills/academic-critique-gem/SKILL.md)**
-  - 学術雑誌エディターの視点で文章を批判的に検討し、論理的なリライトを行います。
+  - 学術雑誌エディターの視点で文章を批判的に推敲します。
 - **[Prompt Architect Gem](./.agents/skills/prompt-architect-gem/SKILL.md)**
-  - ユーザーの要求から高精度な XML 構造化プロンプトを自動設計します。
+  - 高精度な XML 構造化プロンプトを自動設計します。
 - **[Medical Media Producer Gem](./.agents/skills/medical-media-producer-gem/SKILL.md)**
   - 動画制作プロセス全般を管理・ナビゲートします。
 
