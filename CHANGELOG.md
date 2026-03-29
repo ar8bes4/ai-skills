@@ -1,6 +1,24 @@
-﻿# Changelog
+# Changelog
 
 すべての重要かつユーザーに向けた変更はこのファイルに記録されます。
+
+## [v1.1.0] - 2026-03-30
+
+### Added
+- **専門スキル**:
+    - `medical-document-writer`: 医師間（Physician-to-Physician）の高度な専門文書を執筆・校正します。
+    - `slide-designer`: 「1スライド1メッセージ」の黄金律と医療用デザインルールを適用します。
+    - `web-app-designer`: 清潔感のある SPA デザインを生成し、Vercel 移行も想定した設計を行います。
+    - `web-app-pwa-packager`: Web アプリを PWA 化およびオフライン単一ファイル形式へパッケージングします。
+- **ワークフロー**:
+    - `/slide-production-canvas`: リサーチから Google Slides 用構成案を最速作成。
+    - `/spa-publication-github`: リサーチ結果を SPA として GitHub Pages へ公開・集約。
+    - `/webapp-deployment`: 外部（Canvas/Artifact等）コードを GitHub 経由でデプロイ準備。
+    - `/app-pwa-offline`: アプリを PWA/Standalone 形式へパッケージングし配布・公開。
+
+### Changed
+- `README.md`: 本日追加した全ての新スキルとワークフローの解説を追記。
+- `/git-check`: 健康診断後に README 等のドキュメント最新化を提案する機能を追加。
 
 ## [v1.0.0] - 2026-03-28
 
