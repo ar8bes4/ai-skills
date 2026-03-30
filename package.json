@@ -1,0 +1,27 @@
+{
+  "name": "ai-skills",
+  "version": "1.0.0",
+  "description": "> [!INFO] ステータス: 継続的管理中\r > Antigravity (AI) の能力を拡張するためのカスタムスキル群のリポジトリです。本リポジトリは医療メディア制作、学術的文章の推敲、および開発環境（Git）の管理を支援するAIアシスタントの「専門スキル」と「自動化ワークフロー」を管理します。",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ar8bes4/ai-skills.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ar8bes4/ai-skills/issues"
+  },
+  "homepage": "https://github.com/ar8bes4/ai-skills#readme",
+  "dependencies": {
+    "axios": "^1.14.0",
+    "dotenv": "^17.3.1"
+  }
+}
