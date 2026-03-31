@@ -11,8 +11,8 @@
 | ワークフロー名 | コマンド | 概要 |
 | :--- | :--- | :--- |
 | **[git-check](./git-check.md)** | `/git-check` | ローカルと GitHub の同期状態をチェック |
-| **[git-pull](./git-pull.md)** | `/git-pull` | 全てのリポジトリを一括で Pull |
-| **[git-push](./git-push.md)** | `/git-push` | 全てのリポジトリを一括で Commit & Push |
+| **[pull-git](./pull-git.md)** | `/pull-git` | 全てのリポジトリを一括で Pull |
+| **[push-git](./push-git.md)** | `/push-git` | 全てのリポジトリを一括で Commit & Push |
 | **[docs-maintenance](./docs-maintenance.md)** | `/docs-maintenance` | ドキュメントの整合性チェックと日本語化 |
 | **[release](./release.md)** | `/release` | バージョンアップと CHANGELOG 更新、Push |
 | **[medical-video-production](./medical-video-production.md)** | `/medical-video-production` | 医療動画制作の 9 ステップ標準手順 |
