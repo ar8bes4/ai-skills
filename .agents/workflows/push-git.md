@@ -1,3 +1,4 @@
+---
 description: C:\Users\yert1\Documents\agy 以下のリポジトリ、または特定のプロジェクトに対し、安全確認を行った上で Git Commit & Push を実行するワークフロー。
 ---
 
