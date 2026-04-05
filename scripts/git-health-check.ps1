@@ -1,50 +1,52 @@
-# git-health-check.ps1
-# C:\Users\yert1\Documents\agy 下�E Git リポジトリを詳細に診断し、構造化データとして出力します、E
-$targetPath = "C:\Users\yert1\Documents\agy"
-if (-not (Test-Path $targetPath)) {
-    Write-Error "Target path not found: $targetPath"
-    exit 1
-}
+param (
+    [string]$targetPath = "C:\Users\yert1\Documents\agy"
+)
 
-# .git フォルダを持つチE��レクトリを�E帰皁E��取征E(より確実な方法に変更)
-$gitRepos = Get-ChildItem -Path $targetPath -Recurse -Force -ErrorAction SilentlyContinue | 
-            Where-Object { $_.PSIsContainer -and ($_.Name -eq ".git") } |
-            Select-Object -ExpandProperty Parent | 
-            Select-Object -ExpandProperty FullName -Unique
+# Header
+Write-Output "PATH|REPO_NAME|STATUS_SHORT|UNCOMMITTED_COUNT|UNPUSHED_COUNT|BEHIND_COUNT|REMOTE_URL"
 
-Write-Output "PATH|REPO_NAME|STATUS_SHORT|UNCOMMITTED_COUNT|UNPUSHED_COUNT|REMOTE_URL"
+# Search for repos with .git folder
+Get-ChildItem -Path $targetPath -Directory -Recurse | Where-Object { Test-Path (Join-Path $_.FullName ".git") } | ForEach-Object {
+    $repoPath = $_.FullName
+    $relativePath = $repoPath.Replace($targetPath, "").TrimStart("\")
+    $repoName = $_.Name
 
-foreach ($repo in $gitRepos) {
-    if (Test-Path $repo) {
-        Push-Location $repo
-        try {
-            $repoName = Split-Path $repo -Leaf
-            $relativePath = $repo.Replace($targetPath, "").TrimStart("\")
+    Push-Location $repoPath
+    try {
+        # Uncommitted changes
+        $uncommittedCount = (git status --porcelain | Measure-Object).Count
+        $statusSummary = if ($uncommittedCount -gt 0) { "MODIFIED" } else { "CLEAN" }
+
+        # Remote URL
+        $remote = git remote -v | Select-Object -First 1
+        $remoteUrl = if ($remote -match "https?://\S+") { $matches[0] } else { "LOCAL_ONLY" }
+
+        # Ahead/Behind count
+        $unpushedCount = 0
+        $behindCount = 0
+        if ($remoteUrl -ne "LOCAL_ONLY") {
+            $branch = git rev-parse --abbrev-ref HEAD
             
-            # 未コミット�E変更
-            $status = git status --short
-            $uncommittedCount = ($status | Where-Object { $_ -ne "" } | Measure-Object).Count
-            $statusSummary = if ($uncommittedCount -gt 0) { "MODIFIED" } else { "CLEAN" }
-            
-            # リモーチEURL
-            $remote = git remote -v | Select-Object -First 1
-            $remoteUrl = if ($remote -match "https?://\S+") { $matches[0] } else { "LOCAL_ONLY" }
-            
-            # 未プッシュのコミッチE(リモートがある場合�Eみ)
-            $unpushedCount = 0
-            if ($remoteUrl -ne "LOCAL_ONLY") {
-                $branch = git rev-parse --abbrev-ref HEAD
-                $unpushed = git rev-list --count ${branch}@{u}..HEAD 2>$null
-                if ($LASTEXITCODE -eq 0) {
-                    $unpushedCount = [int]$unpushed
-                }
+            # Ahead (Unpushed)
+            $unpushed = git rev-list --count ${branch}@{u}..HEAD 2>$null
+            if ($LASTEXITCODE -eq 0) {
+                $unpushedCount = [int]$unpushed
             }
-            
-            Write-Output "${relativePath}|${repoName}|${statusSummary}|${uncommittedCount}|${unpushedCount}|${remoteUrl}"
+
+            # Behind (Update available)
+            $behind = git rev-list --count HEAD..${branch}@{u} 2>$null
+            if ($LASTEXITCODE -eq 0) {
+                $behindCount = [int]$behind
+            }
         }
-        finally {
-            Pop-Location
-        }
+
+        # Output
+        Write-Output "${relativePath}|${repoName}|${statusSummary}|${uncommittedCount}|${unpushedCount}|${behindCount}|${remoteUrl}"
+    }
+    catch {
+        Write-Warning "Failed: ${repoPath}"
+    }
+    finally {
+        Pop-Location
     }
 }
-
