@@ -5,8 +5,8 @@ param (
 # Header
 Write-Output "PATH|REPO_NAME|STATUS_SHORT|UNCOMMITTED_COUNT|UNPUSHED_COUNT|BEHIND_COUNT|REMOTE_URL"
 
-# Search for repos with .git folder
-Get-ChildItem -Path $targetPath -Directory -Recurse | Where-Object { Test-Path (Join-Path $_.FullName ".git") } | ForEach-Object {
+# Get .git folders directly (including hidden ones) and find their parent directories
+Get-ChildItem -Path $targetPath -Filter ".git" -Recurse -Force -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Parent | ForEach-Object {
     $repoPath = $_.FullName
     $relativePath = $repoPath.Replace($targetPath, "").TrimStart("\")
     $repoName = $_.Name
