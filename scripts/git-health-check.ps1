@@ -25,6 +25,9 @@ Get-ChildItem -Path $targetPath -Filter ".git" -Recurse -Force -ErrorAction Sile
         $unpushedCount = 0
         $behindCount = 0
         if ($remoteUrl -ne "LOCAL_ONLY") {
+            # Update remote refs before checking status
+            git fetch --all --prune --quiet 2>$null
+            
             $branch = git rev-parse --abbrev-ref HEAD
             
             # Ahead (Unpushed)
