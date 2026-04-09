@@ -26,18 +26,18 @@ Get-ChildItem -Path $targetPath -Filter ".git" -Recurse -Force -ErrorAction Sile
         $behindCount = 0
         if ($remoteUrl -ne "LOCAL_ONLY") {
             # Update remote refs before checking status
-            git fetch --all --prune --quiet 2>$null
+            git fetch --all --prune --quiet
             
             $branch = git rev-parse --abbrev-ref HEAD
             
             # Ahead (Unpushed)
-            $unpushed = git rev-list --count ${branch}@{u}..HEAD 2>$null
+            $unpushed = git rev-list --count "${branch}@{u}..HEAD" 2>$null
             if ($LASTEXITCODE -eq 0) {
                 $unpushedCount = [int]$unpushed
             }
 
             # Behind (Update available)
-            $behind = git rev-list --count HEAD..${branch}@{u} 2>$null
+            $behind = git rev-list --count "HEAD..${branch}@{u}" 2>$null
             if ($LASTEXITCODE -eq 0) {
                 $behindCount = [int]$behind
             }
