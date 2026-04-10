@@ -18,8 +18,8 @@ Get-ChildItem -Path $targetPath -Filter ".git" -Recurse -Force -ErrorAction Sile
         $statusSummary = if ($uncommittedCount -gt 0) { "MODIFIED" } else { "CLEAN" }
 
         # Remote URL
-        $remote = git remote -v | Select-Object -First 1
-        $remoteUrl = if ($remote -match "https?://\S+") { $matches[0] } else { "LOCAL_ONLY" }
+        $remoteUrl = git remote get-url origin 2>$null
+        if ($null -eq $remoteUrl) { $remoteUrl = "LOCAL_ONLY" }
 
         # Ahead/Behind count
         $unpushedCount = 0
