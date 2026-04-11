@@ -1,4 +1,7 @@
-# Nano Banana Prompt Architect
+---
+name: nano-banana-prompt-architect
+description: Nano Banana (Gemini 3 シリーズ) に最適化された叙述的なプロンプトを設計・構築するためのスキル
+---
 
 Nano Banana (Gemini 3 Pro Image / Gemini 3.1 Flash Image) に最適化されたプロンプトを設計するためのスキルです。
 

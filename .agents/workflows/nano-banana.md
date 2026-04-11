@@ -1,4 +1,6 @@
-# Nano Banana Prompt Generation Workflow
+---
+description: Nano Banana (Gemini 3 シリーズ) に最適化された至高のプロンプトを、対話形式で設計・構築するワークフロー。
+---
 
 このワークフローは、Nano Banana（Gemini 3 シリーズ）に最適化された画像生成プロンプトを、対話形式で組み上げるためのガイドです。
 
