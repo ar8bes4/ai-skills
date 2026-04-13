@@ -1,14 +1,19 @@
 # 🧠 ai-skills
 
 > [!INFO] ステータス: 継続的管理中
-> Antigravity (AI) の能力を拡張するためのカスタムスキル群のリポジトリです。本リポジトリは医療メディア制作、学術的文章の推敲、および開発環境（Git）の管理を支援するAIアシスタントの「専門スキル」と「自動化ワークフロー」を管理します。
+> Antigravity (AI) の能力を拡張するためのカスタムスキルと自動化ワークフローを管理する、システムの心臓部です。
+
+![Antigravity](https://img.shields.io/badge/Agent-Antigravity-8E75B2?style=flat-square)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![JSON](https://img.shields.io/badge/JSON-000000?style=flat-square&logo=json&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
 ## 🚀 概要 (Overview)
-本リポジトリは、AIアシスタントの能力を定義・拡張するための「専門スキル（Gems）」と、複雑な業務を自動化する「標準ワークフロー」を統合管理します。
+本リポジトリは、AIアシスタントの能力を定義・拡張するための「専門スキル（Skills）」と、複雑な多段階業務を自動化する「標準ワークフロー（Workflows）」を統合管理します。これにより、医療メディア制作、学術的文章の推敲、開発環境の保守などを一貫した品質で実行可能にします。
 
 ### 📁 ディレクトリ構成
-- **[.agents/skills/](./.agents/skills/)**: 42種類の専門スキル定義（医療、GWS、デザイン等）
-- **[.agents/workflows/](./.agents/workflows/)**: 11種類の自動化ワークフロー（Git管理、メディア制作、デプロイ等）
+- **[.agents/skills/](./.agents/skills/)**: 50種類の専門スキル定義（医療、GWS、デザイン等）
+- **[.agents/workflows/](./.agents/workflows/)**: 15種類の自動化ワークフロー（Git管理、メディア制作、デプロイ等）
 - **[docs/](./docs/)**: 運用方針、変換ルール、標準ガイドライン
 - **`sources/`**: 原稿、指示書、プロンプトの種
 - **`attachments/`**: 外部ツール連携用ドキュメント
