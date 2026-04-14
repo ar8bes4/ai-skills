@@ -31,6 +31,7 @@
 | **`/docs-maintenance`**| ドキュメント管理 | スキル・ワークフローの整合性チェックと日本語化 |
 | **`/release`** | バージョン管理 | 自動タグ付け、CHANGELOG 更新、Push |
 | **`/obsidian-sync`** | ナレッジ管理 | リポジトリの更新内容を Obsidian Vault に同期 |
+| **`/gws-shift-planner`**| 業務効率化 | スプレッドシートからのシフト自動生成・カレンダー登録 |
 | **`/medical-video-production`** | メディア制作 | 医療動画・スライド制作の全工程ナビゲート |
 | **`/slide-production-canvas`** | 資料作成 | リサーチ、構成案作成、Google Slides 変換 |
 | **`/spa-publication-github`** | デプロイ | リサーチ結果を SPA として GitHub (hub1/research/) へ公開 |
