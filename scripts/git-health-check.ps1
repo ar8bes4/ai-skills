@@ -14,7 +14,7 @@ Get-ChildItem -Path $targetPath -Filter ".git" -Recurse -Force -ErrorAction Sile
     Push-Location $repoPath
     try {
         # Uncommitted changes
-        $uncommittedCount = (git status --porcelain | Measure-Object).Count
+        $uncommittedCount = @(git status --porcelain).Count
         $statusSummary = if ($uncommittedCount -gt 0) { "MODIFIED" } else { "CLEAN" }
 
         # Remote URL
