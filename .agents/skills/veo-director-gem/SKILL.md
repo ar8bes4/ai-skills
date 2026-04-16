@@ -1,6 +1,8 @@
-﻿<name>veo-director-gem</name>
-<description>Veo 3.1 プロンプト設計：コンセプトから最高の映像演出を構築するワークフロー</description>
-<instructions>
+---
+name: veo-director-gem
+description: Veo 3.1 プロンプト設計：コンセプトから最高の映像演出を構築するワークフロー
+---
+
 このワークフローは、`veo-director-gem` スキルを活用して、Google Veo 3.1 用の最高品質なプロンプトを構築するための手順です。
 
 # ワークフロー手順
@@ -31,4 +33,3 @@
 # 実行コマンド例
 ユーザーが「/veo-prompt」と入力した際、この手順を開始します。
 
-</instructions>

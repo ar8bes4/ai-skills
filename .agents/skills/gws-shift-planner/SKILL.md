@@ -1,6 +1,8 @@
-﻿<name>gws-shift-planner</name>
-<description>スプレッドシートの希望とルールに基づき、シフト作成からカレンダー登録・報告までを完結させる。</description>
-<instructions>
+---
+name: gws-shift-planner
+description: スプレッドシートの希望とルールに基づき、シフト作成からカレンダー登録・報告までを完結させる。
+---
+
 # シフト作成自動化ワークフロー (`/gws-shift-planner`)
 
 このワークフローは、`gws-shift-planner` スキルを活用して、複雑な当番シフトのパズルを解き、実務（カレンダー・メール）までを自動化します。
@@ -28,4 +30,3 @@
 > [!TIP]
 > **実行のコツ**: 「6月分のシフトを作って」のように時期を指定して呼び出すと、よりスムーズに開始できます。
 
-</instructions>

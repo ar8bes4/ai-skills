@@ -1,6 +1,8 @@
-﻿<name>nano-banana-prompt-architect</name>
-<description>Nano Banana (Gemini 3 シリーズ) に最適化された至高のプロンプトを、対話形式で設計・構築するワークフロー。</description>
-<instructions>
+---
+name: nano-banana-prompt-architect
+description: Nano Banana (Gemini 3 シリーズ) に最適化された至高のプロンプトを、対話形式で設計・構築するワークフロー。
+---
+
 このワークフローは、Nano Banana（Gemini 3 シリーズ）に最適化された画像生成プロンプトを、対話形式で組み上げるためのガイドです。
 
 ## 使用方法
@@ -41,4 +43,3 @@ Nano Bananaの「対話型編集」機能を活かした修正案を提示しま
 - **強い動詞**: "Generate a hyper-realistic image of..."
 - **引用符の活用**: テキストが必要な場合は必ず引用符を使用。
 
-</instructions>

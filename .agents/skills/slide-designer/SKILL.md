@@ -1,6 +1,8 @@
-﻿<name>slide-designer</name>
-<description>リサーチ結果を構造化し、Gemini Canvas を利用して Google Slides へ変換・美装するワークフロー</description>
-<instructions>
+---
+name: slide-designer
+description: リサーチ結果を構造化し、Gemini Canvas を利用して Google Slides へ変換・美装するワークフロー
+---
+
 このワークフローは、ディープリサーチから得られた大量の情報を「1スライド1メッセージ」の黄金律に従って整理し、視覚的に訴求力の高いプレゼンテーション資料（Google Slides）を最短で作成するための手順です。
 
 # 制作プロセス
@@ -37,4 +39,3 @@
 - **本文**: 24pt（最低 18pt）。
 - **配色**: 3色以内（意味を持たせる配色）。
 
-</instructions>

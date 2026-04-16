@@ -1,6 +1,8 @@
-﻿<name>web-app-pwa-packager</name>
-<description>作成した Web アプリを PWA 化およびオフライン単一ファイル形式へパッケージング・公開するワークフロー</description>
-<instructions>
+---
+name: web-app-pwa-packager
+description: 作成した Web アプリを PWA 化およびオフライン単一ファイル形式へパッケージング・公開するワークフロー
+---
+
 このワークフローは、Gemini Canvas や Claude Artifacts などで作成した Web アプリを、スマホにインストール可能な「PWA 形式」および、他 PC へコピーしてオフラインで動かせる「Standalone HTML 形式」へと変換し、GitHub に公開するための手順です。
 
 # パッケージング・デプロイプロセス
@@ -30,4 +32,3 @@
 - **配布の手軽さ**: `_offline.html` を 1 つメールや USB メモリで送るだけで、サーバーなしに他 PC で動作します。
 - **究極の機動力**: 一度 PWA としてインストールすれば、電波の届かない病院内などでも即座にリサーチ結果やお気に入りのツールにアクセスできます。
 
-</instructions>
