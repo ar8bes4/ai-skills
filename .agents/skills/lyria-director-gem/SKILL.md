@@ -1,51 +1,40 @@
+﻿<name>lyria-director-gem</name>
+<description>Lyria 3 / Lyria 3 Pro を用いた高品質な音楽制作ワークフロー</description>
+<instructions>
+このワークフローは、音楽生成 AI「Lyria 3 Pro」を最大限に活用し、コンセプト立案から詳細な構造化プロンプト（タイムスタンプ指定、歌詞制御を含む）の作成までを一気通貫で行う手順を定義したものです。
+
+# 制作プロセス
+
+### ステップ①：楽曲コンセプトとムードの定義
+- **Antigravityの支援**: ユーザーの曖昧な着想（例：「春の訪れを感じる曲」）を、具体的なジャンルや時代のキーワードに変換します。
+- **ヒアリング項目**:
+    - 主な使用用途（動画 BGM、観賞用、歌モノなど）
+    - ターゲットとなる感情（Mood）
+    - 参考となるアーティストや曲の雰囲気
+
+### ステップ②：歌詞・構成案のブラッシュアップ
+- **Antigravityの支援**: `prompt-architect-gem` または `Gemini` を使用して、歌詞のドラフトや、曲の構成（Aメロ、サビ、間奏など）を作成します。
+- **重要点**: 歌詞を自作する場合は、この段階で `Lyrics:` 構文の準備をしておきます。
+
+### ステップ③：画像/ドキュメントからのインスピレーション（任意）
+- **Antigravityの支援**: 楽曲の雰囲気に近い画像（Nano Banana での生成も可）や PDF 資料がある場合、そこから色彩、風景、物語性を音楽的要素（楽器、音色、エフェクト）に抽出します。
+- **指示例**: 「この画像にある夕暮れの寂しさを、チェロの音色と低いピアノの音で表現するプロンプトを構成して。」
+
+### ステップ④：構造化プロンプトの構成
+- **Antigravityの支援**: `lyria-director-gem` スキルを活用し、公式の 6要素フレームワークを適用します。
+- **出力形式**:
+    - **モデル用**: 英語プロンプト
+    - **確認用**: 日本語解説
+    - **高度な制御**: 必要に応じて `[00:00]` 形式のタイムスタンプを指定。
+
+### ステップ⑤：Lyria 3 Pro への投入と反復
+- **操作**: 生成されたプロンプトを Google Cloud API または Vertex AI Media Studio に投入します。
+- **フィードバックループ**: 生成された音源を聴き、「ボーカルをもう少し枯れさせたい」「ドラムを力強くしたい」といった修正要望を元に、ステップ④のプロンプトを微調整します。
+
 ---
-name: lyria-director-gem
-description: Lyria 3 / Lyria 3 Pro の専門ディレクターとして、最高品質の音楽生成プロンプトを設計・構成するスキル
----
 
-# 目的
-- ユーザーの音楽的アイデアを、Google DeepMind の最新モデル「Lyria 3」シリーズが正確かつ高い音楽性で解釈できる構造化プロンプトへ昇華させます。
-- 公式の 6要素フレームワークに基づき、楽器構成、テンポ、ボーカルスタイル、歌詞の深みまでを詳細に指定します。
+# 活用のヒント
+- **Veo との連携**: 動画のカット割りに合わせてタイムスタンプを指定することで、シーンに完璧に同期したサウンドトラックが作成可能です。
+- **多言語対応**: 日本語、英語、フランス語などの多言語混同歌唱も指定可能です。
 
-# 基本フレームワーク (Core Prompting Framework)
-すべてのプロンプトは、原則として以下の6要素を連結して構成します。
-`[Genre and Style] + [Mood] + [Instrumentation] + [Tempo and Rhythm] + [Vocal Style & Language] + [Lyrics]`
-
-1. **Genre and Style**: 音楽カテゴリーと時代背景（例: Cinematic orchestral fantasy, Early 90s hip-hop）。
-2. **Mood**: 情緒的意図（例: Tense and suspenseful, Warm and intimate）。
-3. **Instrumentation**: 主要な楽器（例: Acoustic nylon-string guitar, Warm electric piano）。
-4. **Tempo and Rhythm**: 速度とリズムのグルーヴ（例: Fast energetic pace, Slow swaying tempo）。
-5. **Vocal Style & Language**: 性別、トーン、歌唱スタイル、言語（例: Smooth male tenor singing in Japanese）。
-6. **Lyrics**: テーマの指定、または引用符を用いた具体的な歌詞。
-
-# 高度なワークフロー (Advanced Workflows)
-
-## 1. Timestamp Prompting (シーケンス制御)
-- **用途**: 曲の展開（イントロ、サビ、ブリッジ、アウトロ）を秒単位で厳密に制御する場合。Lyria 3 Pro (最大3分) で特に有効です。
-- **形式**:
-    - `[00:00] [Section description...]`
-    - `[00:30] [Transition/Change description...]`
-    - `[02:45] [Ending description...]`
-
-## 2. Lyrics Handling (歌詞の扱い)
-- **固定歌詞**: 自身で書いた歌詞を歌わせる場合は、プロンプト内で `Lyrics:` プレフィックスを使用します。
-- **テーマ生成**: モデルに作詞を任せる場合は、具体的なテーマ（例: 「ニューヨークでの出会いについて」）を指定します。
-
-## 3. Multimodal Support (マルチモーダル連携)
-- **画像引用**: 最大10枚のリファレンス画像からムードを抽出可能です。プロンプト内で「Match the mood/story in the images attached.」と言及します。
-
-# 演出テクニック集
-- **ボーカル制御**: Breathy, Soulful, Raspy, Gravelly, Commanding baritone, High soprano.
-- **ダイナミクス**: "Starting confident but getting calmer and quieter," "Quiet piano building into an explosive chorus."
-- **楽器指定**: 具体的な機材名（例: Roland TR-808, Hammond B3 organ）が有効です。
-
-# 運用ガイド
-1. **指示の具体化**: 抽象的な「いい感じの曲」を、具体的な楽器やテンポ、時代のキーワードに変換してください。
-2. **英語出力と日本語訳**: モデルへの入力精度を最大化するため、最終プロンプトは **英語** で出力し、内容確認用に **日本語訳** を併記してください。
-3. **他モデルとの連携**:
-    - **Veo**: 動画シーンごとのタイミングに合わせたタイムスタンプ指定を提案。
-    - **Nano Banana**: 画像のビジュアル要素を音の質感に変換。
-    - **Gemini**: 歌詞の推敲や、音楽的な比喩の生成を先行して行う。
-
-# プロンプト例
-> **Prompt**: “A romantic fusion of classic Bossa Nova and modern R&B. The mood is intimate and warm. Features gentle acoustic nylon-string guitar and warm electric piano chords. A slow, swaying tempo. Featuring a vocal duet: smooth male vocalist in English and soft, breathy female vocalist in French. The lyrics are about an undeniable connection.”
+</instructions>

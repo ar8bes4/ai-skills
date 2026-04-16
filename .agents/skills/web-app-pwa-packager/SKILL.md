@@ -1,43 +1,33 @@
+﻿<name>web-app-pwa-packager</name>
+<description>作成した Web アプリを PWA 化およびオフライン単一ファイル形式へパッケージング・公開するワークフロー</description>
+<instructions>
+このワークフローは、Gemini Canvas や Claude Artifacts などで作成した Web アプリを、スマホにインストール可能な「PWA 形式」および、他 PC へコピーしてオフラインで動かせる「Standalone HTML 形式」へと変換し、GitHub に公開するための手順です。
+
+# パッケージング・デプロイプロセス
+
+### ステップ①：ソースコードの変換
+- **Antigravityの支援**: `web-app-pwa-packager` スキルを活用し、提供されたコードから以下のアセットを自動生成します。
+    - **PWA用**: `manifest.json`, `sw.js` (キャッシュ設定済み), アイコン画像一式。
+    - **Standalone用**: 全ての CSS/JS/画像を埋め込んだ `[app-name]_offline.html`。
+
+### ステップ②：アイコン・メタデータの作成
+- **Antigravityの支援**: アプリ名に適した汎用的なアセット（アイコン等）を生成・配置します。
+
+### ステップ③：GitHub リポジトリ `research-output` へのプッシュ
+- **デプロイ先**: `ar8bes4/research-output/apps/[アプリ名]/`
+- **構成**:
+    - `index.html` (PWA 用のメインページ)
+    - `[アプリ名]_offline.html` (他 PC 配布用の単一ファイル)
+    - `manifest.json`, `sw.js` 等の付随ファイル
+
+### ステップ④：成果物の納品と案内
+- **インストール案内**: ブラウザでの PWA インストール方法（「ホーム画面に追加」等）をユーザーに伝えます。
+- **ダウンロード案内**: 他 PC での利用に向けた `_offline.html` のダウンロード方法を提示します。
+
 ---
-name: web-app-pwa-packager
-description: Web アプリを PWA 化およびオフライン単一ファイル形式へパッケージングする技術。
----
 
-# 目的
-- 既存の HTML/JS アプリを「インストール可能なアプリ（PWA）」および「持ち運び可能な1ファイル（Standalone）」へと昇格させます。
-- 病院内などのオフライン環境でも、リサーチ結果やツールを確実に動作させることを目指します。
+# 🚀 このワークフローのメリット
+- **配布の手軽さ**: `_offline.html` を 1 つメールや USB メモリで送るだけで、サーバーなしに他 PC で動作します。
+- **究極の機動力**: 一度 PWA としてインストールすれば、電波の届かない病院内などでも即座にリサーチ結果やお気に入りのツールにアクセスできます。
 
-# デザイン・実装ルール
-
-### 1. PWA 配置構成
-- **manifest.json**: 
-    - `display: standalone` を指定し、スマホのホーム画面から起動した際にブラウザのUIを隠します。
-    - `theme_color`: `web-app-designer` のメインカラー（ロイヤルブルー等）を適用。
-- **sw.js (Service Worker)**:
-    - 静的アセット（HTML/CSS/JS/Icons）を `install` イベントでキャッシュ。
-    - ネットワークがない場合はキャッシュから返す `Cache-first` 戦略を基本とします。
-
-### 2. Standalone (Single-file) 変換技術
-- **Assets Inline**: 
-    - `link` タグの内容を `<style>` に、`script src` の内容を `<script>` タグ内に直接展開。
-    - `<img>` タグの `src` や CSS 内の背景画像を `data:image/...;base64,...` 形式に変換。
-- **Dependency Management**:
-    - CDN (Chart.js等) も可能であれば取得してインライン化しますが、巨大なライブラリの場合はユーザーにリポジトリ内への保存か CDN 継続かを確認します。
-
-### 3. モバイル・UX 最適化 (PWA)
-- **アイコン**: 最小限 `192x192` および `512x512` の PNG アイコンを用意。
-- **インストール誘導**: ブラウザの `beforeinstallprompt` イベントをキャッチして、アプリ内でインストールボタンを表示させるロジックを追加。
-
-# 実行手順
-1. **ソースコードの精査**: 
-    - 外部ライブラリの依存関係をリストアップ。
-    - 埋め込むべき画像やアイコンを確認。
-2. **変換作業**:
-    - **PWA版**: `manifest.json`, `sw.js` を生成し、`index.html` にリンクを追記。
-    - **Standalone版**: 全ての外部参照を解消した `[name]_offline.html` を作成。
-3. **検証**:
-    - ブラウザの DevTools (Application タブ) で PWA の登録状態をチェック。
-    - ネットワークを「Offline」に設定して動作を確認。
-
-# 注意事項
-- **セキュリティ**: Standalone 版には全てのロジックが含まれるため、秘匿すべき API キー等は絶対に含めないようにしてください（Vercel/Next.js 移行を前提とした設計を推奨）。
+</instructions>
