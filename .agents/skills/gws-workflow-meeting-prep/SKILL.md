@@ -1,48 +1,8 @@
 ---
 name: gws-workflow-meeting-prep
-description: "Google Workflow: Prepare for your next meeting: agenda, attendees, and linked docs."
-metadata:
-  version: 0.22.3
-  openclaw:
-    category: "productivity"
-    requires:
-      bins:
-        - gws
-    cliHelp: "gws workflow +meeting-prep --help"
+description: "Google Workflow: 次の会議の準備（アジェンダ、出席者、関連ドキュメントの確認）を支援します。"
 ---
 
-# workflow +meeting-prep
+# GWS Workflow: Meeting Prep
 
-> **PREREQUISITE:** Read `../gws-shared/SKILL.md` for auth, global flags, and security rules. If missing, run `gws generate-skills` to create it.
-
-Prepare for your next meeting: agenda, attendees, and linked docs
-
-## Usage
-
-```bash
-gws workflow +meeting-prep
-```
-
-## Flags
-
-| Flag | Required | Default | Description |
-|------|----------|---------|-------------|
-| `--calendar` | — | primary | Calendar ID (default: primary) |
-| `--format` | — | — | Output format: json (default), table, yaml, csv |
-
-## Examples
-
-```bash
-gws workflow +meeting-prep
-gws workflow +meeting-prep --calendar Work
-```
-
-## Tips
-
-- Read-only — never modifies data.
-- Shows the next upcoming event with attendees and description.
-
-## See Also
-
-- [gws-shared](../gws-shared/SKILL.md) — Global flags and auth
-- [gws-workflow](../gws-workflow/SKILL.md) — All cross-service productivity workflows commands
+カレンダーの予定から次の会議を特定し、アジェンダの確認、参加者のリストアップ、および関連するドキュメントのリンクを整理して、効率的な会議準備をサポートします。
