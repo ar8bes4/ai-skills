@@ -2,6 +2,22 @@
 
 すべての重要かつユーザーに向けた変更はこのファイルに記録されます。
 
+## [v1.2.0] - 2026-04-23
+
+### Added
+- **専門スキル**:
+    - `clinical-spa-architect`: 院内（オフライン・閉鎖網）に最適化された高機能医療用 SPA の設計指針を定義。
+    - `lyria-director-gem`: Lyria 3 / Lyria 3 Pro を用いた音楽制作演出スキルの追加。
+    - `veo-director-gem`: Veo 3.1 を用いた映像プロンプト設計スキルの追加。
+    - `nano-banana-prompt-architect`: Gemini 3 向け画像生成プロンプト構築スキルの追加。
+- **インデックス管理**:
+    - `.agents/skills/README.md` を全面的に刷新し、全 50 種類以上のスキルを体系化して網羅。
+
+### Changed
+- **ドキュメントの日本語化**:
+    - `gws-workflow-*`, `obsidian-*`, `recipe-*` シリーズ等の `SKILL.md` の description を英語から日本語へ修正。
+    - エンコーディング問題を解消し、マルチバイト文字の表示安定性を向上。
+
 ## [v1.1.0] - 2026-03-30
 
 ### Added
